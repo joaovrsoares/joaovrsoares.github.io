@@ -1,0 +1,28 @@
+body {
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+}
+
+a {
+    color: indigo;
+    text-decoration: none;
+}
+
+.place {
+    background-color: #f9f9f9;
+    border-color: #CCCCCC #999999 #999999 #CCCCCC;
+    border: 1px solid #CCCCCC;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.place h2 {
+    border-bottom: 1px dashed indigo;
+    margin: 0;
+}

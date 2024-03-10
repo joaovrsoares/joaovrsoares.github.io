@@ -1,0 +1,39 @@
+body {
+    background-color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+p {
+    margin-block-start: 0.5em;
+}
+
+.container {
+    margin: 0 auto;
+    width: 95%;
+}
+
+.box {
+    background-color: #f9f9f9;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.box h2 {
+    border-bottom: 1px dashed #1a344c;
+    margin: 0;
+    color: #1a344c;
+
+}
+
+.project a {
+    color: #30485d;
+    font-weight: bold;
+    font-size: 1.1em;
+    line-height: 0;
+}
+
+.project p {
+    margin-block-start: 0em;
+}
