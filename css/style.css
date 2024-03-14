@@ -10,7 +10,14 @@ p {
 
 .container {
     margin: 0 auto;
-    width: 95%;
+    width: 75%;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.bigbox {
+    float: left;
+    width: 75%;
 }
 
 .box {
@@ -24,7 +31,6 @@ p {
     border-bottom: 1px dashed #1a344c;
     margin: 0;
     color: #1a344c;
-
 }
 
 .project a {
@@ -36,4 +42,18 @@ p {
 
 .project p {
     margin-block-start: 0em;
+}
+
+.footer {
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sidenote {
+    background-color: #f9f9f9;
+    border: 1px solid #CCCCCC;
+    padding: 10px;
+    padding-bottom: 0px;
+    float: right;
 }
