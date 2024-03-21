@@ -9,10 +9,9 @@ p {
 }
 
 .container {
+    min-height: 100vh;
+    max-width: 940px;; 
     margin: 0 auto;
-    width: 75%;
-    display: flex;
-    justify-content: space-between; 
 }
 
 .bigbox {
