@@ -1,0 +1,27 @@
+html {
+    background-color: floralwhite;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    margin: 0 auto;
+    max-width: 940px;
+    line-height: 1.5;
+}
+
+.text br {
+    display: block;
+    content: "";
+    margin-top: 0.5em;
+}
+
+.footer {
+    align-content: center;
+}
+
+img, .map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
