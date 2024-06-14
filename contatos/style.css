@@ -15,7 +15,7 @@ select {
     width: 2.25rem;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     table {
         display: block;
         overflow-x: auto;
