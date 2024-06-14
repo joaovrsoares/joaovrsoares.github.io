@@ -15,19 +15,12 @@ select {
     width: 2.25rem;
 }
 
-table {
-    min-width: 775px;
+.divdatabela {
+    overflow-x: auto;
+    width: 100%;
 }
-@media only screen and (max-width: 775px) {
-    table {
-        display: block;
-        table-layout: fixed;
-        overflow-x: auto;
-        white-space: nowrap;
-        word-break: normal;
-    }
 
-    th, td {
-        display: inline-flex;
-    }
+.tabela {
+    width: 100%;
+    table-layout: fixed;
 }
