@@ -15,11 +15,19 @@ select {
     width: 2.25rem;
 }
 
-@media only screen and (orientation: portrait) {
+table {
+    min-width: 775px;
+}
+@media only screen and (max-width: 775px) {
     table {
         display: block;
         table-layout: fixed;
         overflow-x: auto;
         white-space: nowrap;
+        word-break: normal;
+    }
+
+    th, td {
+        display: inline-flex;
     }
 }
