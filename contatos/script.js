@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault() // não enviar o formulário pela url, em vez disso o js toma conta
 
         // pegando as variáveis direto do formulário
-        var nome = document.getElementById('nome').value;
-        var cel = document.getElementById('celular').value;
-        var email = document.getElementById('e-mail').value;
-        var estado = document.getElementById('uf').value;
-        var cidade = document.getElementById('cidade').value;
+        let nome = document.getElementById('nome').value;
+        let cel = document.getElementById('celular').value;
+        let email = document.getElementById('e-mail').value;
+        let estado = document.getElementById('uf').value;
+        let cidade = document.getElementById('cidade').value;
 
         adicionarContato(nome, cel, email, estado, cidade); // função para adicionar o contato
         document.getElementById('formulario').reset(); // resetando o formulário
