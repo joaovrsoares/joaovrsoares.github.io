@@ -14,9 +14,9 @@
 </head>
 <body>
 <header>
-    <h1>Agenda de contatos - <img src="images/javascript.svg" alt="" class="svg"></h1>
-    <p>Formulário básico feito em JS. Clone de um formulário PHP que fiz no curso.<br>Ainda funcionando offline, sem banco
-        de dados e nem mesmo nos cookies.</p>
+    <h1>Agenda de contatos - <img src="images/javascript.svg" alt="JavaScript logo" class="svg"></h1>
+    <p>Formulário básico feito em JS. Clone de um formulário PHP que fiz no curso.<br>Atualmente salva os contatos nos
+        cookies e em formato <code>.json</code>.</p>
 </header>
 <form id="formulario">
     <fieldset>
@@ -77,6 +77,7 @@
             <th style="width: 250px;">E-mail</th>
             <th style="width: 100px;">Estado (UF)</th>
             <th style="width: 125px;">Cidade</th>
+            <th style="width: 50px;">Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -84,6 +85,22 @@
         </tbody>
     </table>
 </div>
+<fieldset>
+    <legend>Backup</legend>
+    <label for="backup"><b>Salvar em formato .json</b><br>
+        <button id="backup">Fazer Backup</button>
+    </label><br><br>
+    <label for="restaurar"><b>Carregar em formato .json</b><br>
+        <input type="file" id="restaurar">
+    </label>
+    <div id="erro-upload" class="erro"></div>
+</fieldset>
+<footer>
+    <blockquote>
+        <p>Código-fonte: <a href="https://github.com/joaovrsoares/joaovrsoares.github.io/tree/main/contatos">
+            https://github.com/joaovrsoares/joaovrsoares.github.io/tree/main/contatos</a><br>CSS: <a
+                href="https://newcss.net">https://newcss.net</a></p>
+    </blockquote>
+</footer>
 </body>
-
 </html>

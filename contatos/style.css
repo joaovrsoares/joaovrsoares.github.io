@@ -2,10 +2,7 @@ body {
     max-width: 1000px;
 }
 
-input[type=text],
-input[type=tel],
-input[type=email],
-select {
+input[type=text], input[type=tel], input[type=email], select {
     width: 100%;
 }
 
@@ -23,4 +20,12 @@ select {
 .tabela {
     width: 100%;
     table-layout: fixed;
+}
+
+.erro {
+    color: red;
+}
+
+footer {
+    font-size: 0.75em;
 }
