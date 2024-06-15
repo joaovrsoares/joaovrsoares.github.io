@@ -10,9 +10,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
     <!-- Meu CSS-->
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/javascript.svg">
 </head>
 <body>
-<h1>Agenda de contatos - <img src="images/javascript.svg" alt="" class="svg"></h1>
+<header>
+    <h1>Agenda de contatos - <img src="images/javascript.svg" alt="" class="svg"></h1>
+    <p>Formulário básico feito em JS. Clone de um formulário PHP que fiz no curso.<br>Ainda funcionando offline, sem banco
+        de dados e nem mesmo nos cookies.</p>
+</header>
 <form id="formulario">
     <fieldset>
         <legend>Novo contato</legend>
@@ -22,8 +27,8 @@
         <label for="celular">N.º do celular:
             <input type="tel" name="celular" id="celular" required>
         </label>
-        <label for="e-mail">Endereço de e-mail:
-            <input type="email" name="e-mail" id="e-mail" required>
+        <label for="email">Endereço de e-mail:
+            <input type="email" name="email" id="email" required>
         </label>
         <label for="uf">Estado (UF):
             <select name="uf" id="uf">
