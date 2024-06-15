@@ -60,12 +60,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carregarContatos()
 
+    // função para carregar as cidades de acordo com o estado pela api do ibge
+    const selectUF = document.getElementById('uf');
+    const selectCidade = document.getElementById('cidade');
+    const carregarCidades = (uf) => {
+        fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome&view=nivelado`) // pega a api do ibge
+            .then(response => response.json()) // transforma a resposta em json
+            .then(data => { // pega os dados
+                selectCidade.innerHTML = '<option value="">Selecione a Cidade</option>'; // Resetar as opções
+                data.forEach(municipio => { // para cada município, cria uma opção
+                    const option = document.createElement('option');
+                    option.value = municipio["municipio-nome"]; // pega o nome do município e joga no value
+                    option.textContent = municipio["municipio-nome"]; // pega o nome do município e joga no texto
+                    selectCidade.appendChild(option); // joga a opção criada no select
+                });
+            })
+    };
+
+    // Evento para carregar cidades ao selecionar um estado
+    selectUF.addEventListener('change', (event) => {
+        const uf = event.target.value;
+        if (uf) {
+            carregarCidades(uf);
+        } else {
+            selectCidade.innerHTML = '<option value="">Selecione a Cidade</option>';
+        }
+    });
+
     formulario.addEventListener('submit', (event) => {
         // não enviar o formulário pela url (com os parâmetros ? e &), em vez disso o js toma conta
         event.preventDefault();
 
         // pegando as variáveis do formulário e jogando para essa constante
         const {nome, celular, email, uf, cidade} = event.target.elements;
+
+        if (cidade.value === '') {
+            alert('Por favor, selecione uma cidade.');
+            return;
+        }
+
         const contato = {
             nome: nome.value, celular: celular.value, email: email.value, uf: uf.value, cidade: cidade.value
         };
