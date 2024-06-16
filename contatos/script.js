@@ -107,15 +107,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // função para baixar o backup
     const backupContatos = () => {
-        const contatos = JSON.parse(localStorage.getItem('contatos')) || []; // pegar os dados dos cookies, se nao tiver, nao pega nada
-        const dadosDoBackup = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(contatos)) // transforma o json em string de dados para fazer o download
-        const download = document.createElement('a'); // cria um <a> para anexar o arquivo
-        download.setAttribute('href', dadosDoBackup); // anexa
-        download.setAttribute('download', 'contatos_backup.json'); // cria o atributo download com a string
-        document.body.appendChild(download); // joga isso pro body do html
-        download.click(); // clica nesse botão
-        download.remove(); // remove rapidamente ele
+        const contatos = JSON.parse(localStorage.getItem('contatos')); // pegar os dados dos cookies, se nao tiver, nao pega nada
+        erroBackup.style.display = 'none'; // esconde a mensagem de erro
+        // se retornar um array vazio, escrever no html que não tem contatos
+        if (contatos.length === 0) {
+            // escrever no html que não tem contatos
+            const erroBackup = document.getElementById('erro-backup'); // pega o elemento do html
+            erroBackup.textContent = ('Não há contatos para fazer backup.'); // escreve a mensagem de erro
+        } else {
+            const dadosDoBackup = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(contatos)) // transforma o json em string de dados para fazer o download
+            const download = document.createElement('a'); // cria um <a> para anexar o arquivo
+            download.setAttribute('href', dadosDoBackup); // anexa
+            download.setAttribute('download', 'contatos_backup.json'); // cria o atributo download com a string
+            document.body.appendChild(download); // joga isso pro body do html
+            download.click(); // clica nesse botão
+            download.remove(); // remove rapidamente ele
+        }
     };
+
     // ao clicar no botão backup, fazer download do json criado acima
     document.getElementById('backup').addEventListener('click', backupContatos);
 
