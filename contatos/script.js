@@ -60,31 +60,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carregarContatos()
 
-    // função para carregar as cidades de acordo com o estado pela api do ibge
+    // função para carregar as cidades de acordo com estado pela api do ibge
     const selectUF = document.getElementById('uf');
     const selectCidade = document.getElementById('cidade');
     const carregarCidades = (uf) => {
         fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome&view=nivelado`) // pega a api do ibge
             .then(response => response.json()) // transforma a resposta em json
             .then(data => { // pega os dados
-                selectCidade.innerHTML = '<option value="">Selecione a Cidade</option>'; // Resetar as opções
+                selectCidade.innerHTML = '<option value="" selected disabled>Selecione a Cidade</option>'; // Resetar as opções
                 data.forEach(municipio => { // para cada município, cria uma opção
                     const option = document.createElement('option');
                     option.value = municipio["municipio-nome"]; // pega o nome do município e joga no value
                     option.textContent = municipio["municipio-nome"]; // pega o nome do município e joga no texto
                     selectCidade.appendChild(option); // joga a opção criada no select
-                });
+                }); // repete até acabar os municípios
             })
     };
 
     // Evento para carregar cidades ao selecionar um estado
-    selectUF.addEventListener('change', (event) => {
-        const uf = event.target.value;
-        if (uf) {
-            carregarCidades(uf);
-        } else {
-            selectCidade.innerHTML = '<option value="">Selecione a Cidade</option>';
-        }
+    selectUF.addEventListener('change', (event) => { // ao mudar o select de estado
+        const uf = event.target.value; // pega o valor do select
+        carregarCidades(uf); // chama a função de carregar cidades passando o valor do select
     });
 
     formulario.addEventListener('submit', (event) => {
@@ -94,12 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // pegando as variáveis do formulário e jogando para essa constante
         const {nome, celular, email, uf, cidade} = event.target.elements;
 
-        if (cidade.value === '') {
-            alert('Por favor, selecione uma cidade.');
-            return;
-        }
-
-        const contato = {
+        const contato = { // criando um objeto com os valores do formulário
             nome: nome.value, celular: celular.value, email: email.value, uf: uf.value, cidade: cidade.value
         };
 
@@ -107,9 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         adicionarContato(contato.nome, contato.celular, contato.email, contato.uf, contato.cidade);
 
         // salva no localStorage
-        const contatos = JSON.parse(localStorage.getItem('contatos')) || [];
-        contatos.push(contato);
-        salvarContatos(contatos)
+        const contatos = JSON.parse(localStorage.getItem('contatos')) || []; // pega os contatos do localStorage e se não tiver, cria um array vazio
+        contatos.push(contato); // adiciona o contato no array
+        salvarContatos(contatos) // salva o array no localStorage
 
         formulario.reset(); // resetando o furmulário
     });
@@ -130,14 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // função para restaurar o backup
     const restaurarContatos = (event) => {
-        const arquivo = event.target.files[0];
-        const ler = new FileReader();
-        ler.onload = (event => {
-            const enviado = event.target.result;
+        const arquivo = event.target.files[0]; // pega o arquivo
+        const ler = new FileReader(); // cria um leitor de arquivos
+        ler.onload = (event => { // ao carregar o arquivo
+            const enviado = event.target.result; // pega o resultado do arquivo
             if (typeof enviado == 'string') {
-                try {
+                try { // tenta fazer o parse do json, salvar os contatos e recarregar a página, se der erro, joga a mensagem de erro
                     const contatos = JSON.parse(enviado);
-                    salvarContatos(contatos)
+                    salvarContatos(contatos);
                     location.reload();
                 } catch (e) {
                     const erroUpload = document.getElementById('erro-upload');
