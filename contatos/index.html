@@ -18,60 +18,77 @@
     <p>Formulário básico feito em JS. Clone de um formulário PHP que fiz no curso.<br>Atualmente salva os contatos nos
         cookies e em formato <code>.json</code>.</p>
 </header>
-<form id="formulario">
-    <fieldset>
-        <legend>Novo contato</legend>
-        <label for="nome">Nome completo:
-            <input type="text" name="nome" id="nome" autofocus required>
-        </label>
-        <label for="celular">N.º do celular:
-            <input type="tel" name="celular" id="celular" required>
-        </label>
-        <label for="email">Endereço de e-mail:
-            <input type="email" name="email" id="email" required autocomplete="email">
-        </label>
-        <label for="uf">Estado (UF):
-            <select name="uf" id="uf" required>
-                <option value="" selected disabled>Selecione</option>
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP">São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-            </select>
-        </label>
-        <label for="cidade">Cidade:
-            <select id="cidade" name="cidade">
-                <!-- Cidades aqui -->
-            </select>
-        </label>
-        <br><br>
-        <input type="submit" value="+ Adicionar">
-    </fieldset>
-</form>
-<br>
+<div class="container">
+    <div class="formulario">
+        <form id="formulario">
+            <fieldset>
+                <legend>Novo contato</legend>
+                <label for="nome">Nome completo:
+                    <input type="text" name="nome" id="nome" autofocus required>
+                </label>
+                <label for="celular">N.º do celular:
+                    <input type="tel" name="celular" id="celular" required>
+                </label>
+                <label for="email">Endereço de e-mail:
+                    <input type="email" name="email" id="email" required autocomplete="email">
+                </label>
+                <label for="uf">Estado (UF):
+                    <select name="uf" id="uf" required>
+                        <option value="" selected disabled>Selecione</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </label>
+                <label for="cidade">Cidade:
+                    <select id="cidade" name="cidade">
+                        <!-- Cidades aqui -->
+                    </select>
+                </label>
+                <br><br>
+                <input type="submit" value="+ Adicionar">
+            </fieldset>
+        </form>
+    </div>
+    <div class="backup">
+        <fieldset>
+            <legend>Backup</legend>
+            <label for="backup"><b>Salvar em formato .json</b><br>
+                <button id="backup">Fazer Backup</button>
+            </label>
+            <div id="erro-backup" class="erro"></div>
+            <br>
+            <label for="restaurar"><b>Carregar em formato .json</b><br>
+                <input type="file" id="restaurar">
+            </label>
+            <div id="erro-upload" class="erro"></div>
+        </fieldset>
+    </div>
+</div>
 <div class="divdatabela">
     <table id="tabela" class="tabela">
         <thead>
@@ -81,7 +98,7 @@
             <th style="width: 250px;">E-mail</th>
             <th style="width: 100px;">Estado (UF)</th>
             <th style="width: 125px;">Cidade</th>
-            <th style="width: 56px;">Ações</th>
+            <th style="width: 60px;">Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -89,18 +106,7 @@
         </tbody>
     </table>
 </div>
-<fieldset>
-    <legend>Backup</legend>
-    <label for="backup"><b>Salvar em formato .json</b><br>
-        <button id="backup">Fazer Backup</button>
-    </label>
-    <div id="erro-backup" class="erro"></div>
-    <br>
-    <label for="restaurar"><b>Carregar em formato .json</b><br>
-        <input type="file" id="restaurar">
-    </label>
-    <div id="erro-upload" class="erro"></div>
-</fieldset>
+<br>
 <footer>
     <blockquote>
         <p>Código-fonte: <a href="https://github.com/joaovrsoares/joaovrsoares.github.io/tree/main/contatos">
