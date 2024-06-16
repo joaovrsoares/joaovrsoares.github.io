@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // função para baixar o backup
     const backupContatos = () => {
         const contatos = JSON.parse(localStorage.getItem('contatos')); // pegar os dados dos cookies, se nao tiver, nao pega nada
-        erroBackup.style.display = 'none'; // esconde a mensagem de erro
         // se retornar um array vazio, escrever no html que não tem contatos
         if (contatos.length === 0) {
             // escrever no html que não tem contatos
