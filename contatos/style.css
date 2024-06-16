@@ -6,29 +6,16 @@ input[type=text], input[type=tel], input[type=email], select {
     width: 100%;
 }
 
+@media (max-width: 440px) {
+    input[type=file] {
+        width: 100%;
+    }
+}
+
 .svg {
     vertical-align: top;
     height: 2rem;
     width: 2rem;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-}
-
-@media (min-width: 1042px) {
-    .container {
-        flex-direction: row;
-    }
-
-    .formulario {
-        width: 60%;
-    }
-    .backup {
-        margin-left: 1rem;
-        width: 40%;
-    }
 }
 
 .divdatabela {
