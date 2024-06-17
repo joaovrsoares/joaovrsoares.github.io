@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ...daqui
         celulaNome.textContent = nome;
         celulaCelular.textContent = celular;
-        celulaEmail.textContent = email;
+        celulaEmail.innerHTML = `<a href="mailto:${email}">${email}</a>`;
         celulaUF.textContent = uf;
         celulaCidade.textContent = cidade;
 
