@@ -63,3 +63,25 @@ button:active {
 .operacao:active {
     background-color: hsl(35, 100%, 75%);
 }
+
+@media (max-width: 600px) {
+    #calculadora {
+        max-width: 90%;
+    }
+
+    #display {
+        font-size: 3rem; /* Diminui o tamanho da fonte no display */
+        padding: 15px; /* Ajusta o padding para ser um pouco menor */
+    }
+
+    #teclas {
+        padding: 20px;
+        gap: 5px;
+    }
+
+    button {
+        width: 70px; /* Diminui o tamanho dos botões */
+        height: 70px; /* Diminui o tamanho dos botões */
+        font-size: 2rem; /* Diminui o tamanho da fonte nos botões */
+    }
+}
