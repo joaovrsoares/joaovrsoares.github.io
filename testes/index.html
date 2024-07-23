@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Reconhecimento facial</title>
+	</head>
+	<body>
+		<video id="video" autoplay="true"></video>
+		<script>
+			const video = document.getElementById('video');
+			navigator.mediaDevices.getUserMedia({
+					video: true
+				})
+				.then(stream => {
+					video.srcObject = stream;
+				})
+				.catch(err => {
+					console.error("Error accessing camera: ", err);
+				});
+		</script>
+	</body>
+</html>
