@@ -1,0 +1,43 @@
+body {
+	margin: 0 auto;
+	width: 1400px;
+	padding: 2rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	font-family: Inter, Arial, sans-serif;
+}
+
+header {
+	background: #F6F8FA;
+	padding: 2rem 1.5rem;
+	margin: -2rem calc(0px - (50vw - 50%)) 2rem;
+	padding-left: calc(50vw - 50%);
+	padding-right: calc(50vw - 50%);
+}
+
+ul {
+	display: flex;
+	align-items: center;
+	gap: 50px;
+}
+
+li {
+	list-style-type: none;
+}
+
+.camera {
+	width: 800px;
+}
+
+.container {
+	display: flex;
+	gap: 20px;
+}
+
+.form-cadastro {
+	width: 100%;
+}
+
+input[type=text] {
+	width: 60%;
+}
