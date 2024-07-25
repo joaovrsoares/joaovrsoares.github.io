@@ -1,10 +1,8 @@
-const video = document.getElementById('camera');
-navigator.mediaDevices.getUserMedia({
-		video: true
-	})
-	.then(stream => {
-		video.srcObject = stream;
-	})
-	.catch(err => {
-		console.error("Error accessing camera: ", err);
-	});
+const camera = document.getElementById('camera');
+navigator.mediaDevices.getUserMedia({video: true})
+    .then(streamDaCamera => {
+        camera.srcObject = streamDaCamera;
+    })
+    .catch(erro => {
+        console.error("Erro ao abrir a câmera: ", erro);
+    });
