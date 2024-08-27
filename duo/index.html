@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de streak do Duolingo</title>
+</head>
+<body>
+    <script>
+        function obterIdDaUrl() {
+            const parametrosUrl = new URLSearchParams(window.location.search);
+            return parametrosUrl.get('id');
+        }
+        
+        async function obterStreak(id) {
+            const urlDaApi = `https://www.duolingo.com/2017-06-30/users/${id}`;
+            try {
+                const resposta = await fetch(urlDaApi)
+                if (!resposta.ok) {
+                    throw new Error(`Erro ao buscar o streak: ${resposta.statusText}`)
+                }
+                const dados = await resposta.json()
+                return dados.streak
+            }
+            catch (erro) {
+                console.error(`Erro: ${erro}`)
+                return null
+            }
+        }
+        
+        async function principal() {
+            const id = obterIdDaUrl();
+            if (!id) {
+                console.error('ID não encontrada.')
+                return;
+            }
+        
+            const streak = await obterStreak(id);
+            if (streak !== null) {
+                console.log(streak)
+                document.body.innerHTML = `${streak}`
+            }
+        }
+        
+        principal()
+    </script>
+</body>
+</html>
